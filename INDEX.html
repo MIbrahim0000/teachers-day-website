@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Teachers' Day</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0
+}
+
+html{
+    scroll-behavior:smooth
+}
+
+body{
+    font-family:Poppins,sans-serif;
+    background:#080817;
+    color:#fff;
+    overflow-x:hidden
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 20%,#5b2a86 0,transparent 28%),
+    radial-gradient(circle at 80% 10%,#163b78 0,transparent 30%),
+    radial-gradient(circle at 50% 100%,#71245f 0,transparent 35%);
+    opacity:.55;
+    z-index:-2
+}
+
+canvas{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:10
+}
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:20;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 7%;
+    background:rgba(8,8,23,.45);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,.08)
+}
+
+.logo{
+    font-weight:700;
+    letter-spacing:1px
+}
+
+.logo span{
+    color:#ffd166
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:24px;
+    font-size:14px;
+    opacity:.85
+}
+
+.hero{
+    min-height:100vh;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    padding:120px 20px 60px;
+    position:relative
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 16px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:50px;
+    background:rgba(255,255,255,.07);
+    font-size:13px;
+    letter-spacing:2px;
+    text-transform:uppercase
+}
+
+h1{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(54px,10vw,120px);
+    line-height:.95;
+    margin:25px 0;
+    background:linear-gradient(90deg,#fff,#ffd166,#ff8fab,#fff);
+    -webkit-background-clip:text;
+    color:transparent;
+    background-size:300%;
+    animation:shine 5s infinite
+}
+
+@keyframes shine{
+    50%{
+        background-position:100% 0
+    }
+}
+
+.hero p{
+    max-width:720px;
+    margin:0 auto;
+    color:#ddd;
+    font-size:18px;
+    line-height:1.8
+}
+
+.cta{
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap
+}
+
+button,.btn{
+    border:0;
+    cursor:pointer;
+    text-decoration:none;
+    color:#17121f;
+    font-weight:700;
+    padding:14px 24px;
+    border-radius:50px;
+    background:linear-gradient(135deg,#ffd166,#ff9f68);
+    box-shadow:0 10px 35px rgba(255,160,90,.22);
+    transition:.25s
+}
+
+button:hover,.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 45px rgba(255,160,90,.35)
+}
+
+.btn.secondary{
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    border:1px solid rgba(255,255,255,.15)
+}
+
+section{
+    padding:100px 7%;
+    position:relative
+}
+
+.section-title{
+    text-align:center;
+    font-family:"Playfair Display",serif;
+    font-size:46px;
+    margin-bottom:14px
+}
+
+.section-sub{
+    text-align:center;
+    color:#bdb9ca;
+    margin-bottom:50px
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+    max-width:1100px;
+    margin:auto
+}
+
+.card{
+    padding:30px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:24px;
+    background:rgba(255,255,255,.055);
+    backdrop-filter:blur(12px);
+    transition:.3s
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    background:rgba(255,255,255,.085)
+}
+
+.icon{
+    font-size:40px;
+    margin-bottom:16px
+}
+
+.card h3{
+    margin-bottom:10px
+}
+
+.card p{
+    color:#c7c3d0;
+    line-height:1.7;
+    font-size:14px
+}
+
+.teacher{
+    max-width:900px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:240px 1fr;
+    gap:35px;
+    align-items:center;
+    padding:34px;
+    border-radius:30px;
+    background:linear-gradient(
+        135deg,
+        rgba(255,255,255,.09),
+        rgba(255,255,255,.035)
+    );
+    border:1px solid rgba(255,255,255,.12)
+}
+
+.photo{
+    height:240px;
+    border-radius:25px;
+    display:grid;
+    place-items:center;
+    font-size:90px;
+    background:linear-gradient(135deg,#31235f,#b5487a);
+    box-shadow:inset 0 0 50px rgba(255,255,255,.08)
+}
+
+.teacher h3{
+    font-family:"Playfair Display",serif;
+    font-size:38px;
+    margin-bottom:12px
+    
+}
+
+.teacher p{
+    color:#d1cdd9;
+    line-height:1.9
+}
+
+.quote{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+    padding:55px 30px;
+    border-radius:30px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1)
+}
+
+.quote mark{
+    background:none;
+    color:#ffd166
+}
+
+.quote p{
+    font-family:"Playfair Display",serif;
+    font-size:30px;
+    line-height:1.5
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    max-width:1000px;
+    margin:auto
+}
+
+.gallery div{
+    height:210px;
+    border-radius:22px;
+    background:linear-gradient(135deg,#24204b,#6c315d);
+    display:grid;
+    place-items:center;
+    font-size:42px;
+    border:1px solid rgba(255,255,255,.1)
+}
+
+.final{
+    text-align:center;
+    min-height:65vh;
+    display:grid;
+    place-items:center
+}
+
+.final h2{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(45px,8vw,90px);
+    margin-bottom:20px
+}
+
+footer{
+    text-align:center;
+    padding:28px;
+    color:#8e899b;
+    border-top:1px solid rgba(255,255,255,.08);
+    font-size:13px
+}
+
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.72);
+    display:none;
+    place-items:center;
+    z-index:30;
+    padding:20px
+}
+
+.modal.show{
+    display:grid
+}
+
+.modal-box{
+    max-width:600px;
+    text-align:center;
+    padding:45px 35px;
+    border-radius:30px;
+    background:#17152b;
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 25px 100px #000
+}
+
+.modal-box h2{
+    font-family:"Playfair Display";
+    font-size:42px;
+    color:#ffd166;
+    margin-bottom:15px
+}
+
+.modal-box p{
+    color:#ddd;
+    line-height:1.8
+}
+
+
+
+
+html,body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden
+}
+
+img,video{
+    max-width:100%;
+    height:auto
+}
+
+button,.btn{
+    min-height:48px;
+    touch-action:manipulation
+}
+
+@media (max-width:1100px){
+
+    section{
+        padding-left:5%;
+        padding-right:5%
+    }
+
+    .cards{
+        grid-template-columns:repeat(2,1fr)
+    }
+}
+
+@media (max-width:768px){
+
+    nav{
+        padding:14px 5%
+    }
+
+    nav .logo{
+        font-size:14px
+    }
+
+    nav .links{
+        display:flex;
+        gap:4px;
+        overflow-x:auto;
+        max-width:62%;
+        scrollbar-width:none
+    }
+
+    nav .links::-webkit-scrollbar{
+        display:none
+    }
+
+    nav a{
+        margin-left:10px;
+        white-space:nowrap;
+        font-size:12px
+    }
+
+    .hero{
+        min-height:100svh;
+        padding:105px 18px 45px
+    }
+
+    h1{
+        font-size:clamp(48px,16vw,78px);
+        margin:20px 0
+    }
+
+    .hero p{
+        font-size:15px;
+        line-height:1.7
+    }
+
+    .cta{
+        margin-top:25px;
+        flex-direction:column;
+        align-items:stretch;
+        max-width:330px;
+        margin-left:auto;
+        margin-right:auto
+    }
+
+    .cta .btn,
+    .cta button{
+        width:100%
+    }
+
+    section{
+        padding:70px 18px
+    }
+
+    .section-title{
+        font-size:36px;
+        line-height:1.15
+    }
+
+    .section-sub{
+        font-size:14px;
+        line-height:1.6;
+        margin-bottom:30px
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+        gap:15px
+    }
+
+    .card{
+        padding:24px
+    }
+
+    .teacher{
+        grid-template-columns:1fr;
+        padding:22px;
+        gap:22px;
+        text-align:center
+    }
+
+    .photo{
+        width:100%;
+        height:210px;
+        font-size:75px
+    }
+
+    .teacher h3{
+        font-size:31px
+    }
+
+    .teacher p{
+        font-size:14px;
+        line-height:1.8
+    }
+
+    .quote{
+        padding:35px 20px
+    }
+
+    .quote p{
+        font-size:23px
+    }
+
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px
+    }
+
+    .gallery div{
+        height:145px;
+        font-size:34px
+    }
+
+    .final{
+        min-height:65svh;
+        padding:70px 18px
+    }
+
+    .final h2{
+        font-size:clamp(38px,11vw,60px);
+        line-height:1.05
+    }
+
+    .modal{
+        padding:15px
+    }
+
+    .modal-box{
+        padding:32px 22px;
+        border-radius:24px;
+        max-height:88svh;
+        overflow:auto
+    }
+
+    .modal-box h2{
+        font-size:34px
+    }
+
+    .modal-box p{
+        font-size:14px;
+        line-height:1.8
+    }
+}
+
+@media (max-width:420px){
+
+    nav .links{
+        max-width:58%
+    }
+
+    nav a{
+        font-size:11px;
+        margin-left:6px
+    }
+
+    .badge{
+        font-size:10px;
+        letter-spacing:1.4px;
+        padding:7px 12px
+    }
+
+    .gallery div{
+        height:125px
+    }
+
+    .card{
+        padding:20px
+    }
+}
+
+@media (prefers-reduced-motion:reduce){
+
+    
+    ::before,
+    ::after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        scroll-behavior:auto!important;
+        transition:none!important
+    }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="fx"></canvas>
+
+<nav>
+    <div class="logo">✨ <span>Teachers</span> Day</div>
+
+    <div class="links">
+        <a href="#about">About</a>
+        <a href="#teacher">Teacher</a>
+        <a href="#memories">Memories</a>
+        <a href="#surprise">Surprise</a>
+    </div>
+</nav>
+
+
+
+
+<header class="hero">
+
+<div>
+
+    <div class="badge">
+        A little tribute to a great teacher
+    </div>
+
+    <h1>
+        Happy<br>Teachers' Day
+    </h1>
+
+    <p>
+        To the teacher who turns questions into curiosity,
+        mistakes into lessons, and ordinary days into
+        unforgettable memories.
+    </p>
+
+    <div class="cta">
+
+        <button onclick="openGift('surprise')">
+            🎁 Open Your Surprise
+        </button>
+
+        <a class="btn secondary" href="#teacher">
+            Meet Our Teacher ↓
+        </a>
+
+    </div>
+
+</div>
+
+</header>
+
+
+
+
+<section id="about">
+
+    <h2 class="section-title">
+        Why Teachers Matter
+    </h2>
+
+    <p class="section-sub">
+        More than lessons. More than books. A lasting impact.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">🌱</div>
+            <h3>You Help Us Grow</h3>
+
+            <p>
+                You don't just teach a subject — you help us
+                discover what we are capable of becoming.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">💡</div>
+            <h3>You Inspire Us</h3>
+
+            <p>
+                Your encouragement makes difficult things feel
+                possible and every small achievement feel meaningful.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">🌟</div>
+            <h3>You Leave a Mark</h3>
+
+            <p>
+                The best lessons stay with us long after the
+                classroom is gone. Thank you for making yours count.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<section id="teacher">
+
+    <h2 class="section-title">
+    A Special Tribute To ❤️>
+
+<p  class="section-sub">
+  <h3 style="text-align: center;">Dear Miss Tazzakka ❤️</h3>
+</p>
+    
+    <div class="teacher">
+
+        <div class="photo">
+            👩‍🏫
+        </div>
+
+        <div>
+
+            <h3>
+                Dear Amazing Teacher
+            </h3>
+
+            <p>
+                Thank you for your patience, your kindness,
+                your guidance, and for believing in us even
+                when we doubted ourselves.
+
+                Your classroom is a place where we learn,
+                laugh, try again, and grow.
+            </p>
+
+            <br>
+
+            <strong>
+                With gratitude & respect — Your Students ❤️
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<section>
+
+    <div class="quote">
+
+        <p>
+            “A teacher plants the seeds of knowledge
+            that can grow for a lifetime.”
+        </p>
+
+        <br>
+
+        <span>
+            — With heartfelt thanks
+        </span>
+
+    </div>
+
+</section>
+
+
+
+
+<section id="memories">
+
+    <h2 class="section-title">
+        Our Little Memory Wall
+    </h2>
+
+    <p class="section-sub">
+        These placeholders can be replaced with your real class photos.
+    </p>
+<style>
+    .memory-wall {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+
+    .memory-wall > div {
+        min-height: 170px;
+        padding: 20px;
+        border-radius: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 45px;
+        box-sizing: border-box;
+    }
+
+    .memory-wall > div small {
+        display: block;
+        margin-top: 12px;
+        font-size: 18px;
+        line-height: 1.4;
+        color: white;
+    }
+
+    @media (max-width: 768px) {
+        .memory-wall {
+            grid-template-columns: 1fr;
+        }
+
+        .memory-wall > div {
+            min-height: 150px;
+        }
+
+        .memory-wall > div small {
+            font-size: 16px;
+        }
+    }
+</style>
+
+<div class="memory-wall">
+
+    <div>
+        📚
+        <small>You made learning beautiful.</small>
+    </div>
+
+    <div>
+        📝
+        <small>Every lesson became a sweet memory.</small>
+    </div>
+
+    <div>
+        🎓
+        <small>You taught us to believe in ourselves.</small>
+    </div>
+
+    <div>
+        ☕
+        <small>Our little talks made every day special.</small>
+    </div>
+
+    <div>
+        😊
+        <small>Your smile always made us feel better.</small>
+    </div>
+
+    <div>
+        🌸
+        <small>Thank you for being a wonderful teacher.</small>
+    </div>
+
+</div>
+
+</section>
+
+
+
+
+<section class="final" id="surprise">
+
+    <div>
+
+        <h2>
+            Because Great Teachers<br>
+            Deserve Great Thanks. 💛
+        </h2>
+
+        <p class="section-sub">
+            Click the button below for one last surprise.
+        </p>
+
+        <!-- SECOND BUTTON -->
+        <button onclick="openGift('special')">
+            💌 Read a Special Message
+        </button>
+
+    </div>
+
+</section>
+
+
+<footer>
+    Made with ❤️ for an unforgettable teacher • Happy Teachers' Day
+</footer>
+
+
+
+
+<div class="modal" id="modal">
+
+    <div class="modal-box">
+
+        <h2 id="modalTitle">
+            Thank You, Teacher! 🌷
+        </h2>
+
+        <p id="modalMessage">
+            Thank you for everything! ❤️
+        </p>
+
+        <br>
+
+        <button onclick="closeGift()">
+            Close ❤️
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+
+
+const canvas = document.getElementById('fx');
+const ctx = canvas.getContext('2d');
+
+let W,H,particles=[];
+
+function resize(){
+
+    W = canvas.width = innerWidth;
+    H = canvas.height = innerHeight;
+
+}
+
+addEventListener('resize',resize);
+
+resize();
+
+
+for(let i=0;i<90;i++){
+
+    particles.push({
+
+        x:Math.random()*W,
+        y:Math.random()*H,
+        r:Math.random()*2+1,
+        v:Math.random()*.5+.15,
+        a:Math.random()*.8+.2
+
+    });
+
+}
+
+
+function draw(){
+
+    ctx.clearRect(0,0,W,H);
+
+    for(const p of particles){
+
+        p.y -= p.v;
+
+        if(p.y<0)
+            p.y=H;
+
+        ctx.globalAlpha=p.a;
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            p.r,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fillStyle='#fff';
+
+        ctx.fill();
+
+    }
+
+    requestAnimationFrame(draw);
+
+}
+
+draw();
+
+
+
+
+function openGift(type){
+
+    const modal = document.getElementById('modal');
+
+    const title = document.getElementById('modalTitle');
+
+    const message = document.getElementById('modalMessage');
+
+
+    
+
+    if(type === 'surprise'){
+
+        title.innerHTML = "🎁 A Special Message For You!";
+
+        message.innerHTML = `
+            Dear Amazing Teacher ❤️<br><br>
+
+            Ap Woh Chaand Ho Jiss Per Koi Daag Nhi,
+            Ap Itni Haseen Ho Jiss Ka Koi Hisaab Nhi. 🌙✨<br><br>
+
+            Ap Woh Nadi Ho Jo Apni Marzi Say Behti Hai,
+            Ap Woh Baag Ho Jiss Mein Titliyaan Rehti Hain. 🌸🦋<br><br>
+
+            Ap Woh Nadi Ho Jiss Me Chaand Nahata Hai,
+            Ap Woh Hai Jiss Say Chaand Bhi Sharmata Hai. 😯👀<br><br>
+
+            Ap Woh Suraaj Ho Jo Thandak Phnchata Hai,
+            Ap Woh Rasta Ho Jo Jannat Tak Jata Hai. ☀️🌷<br><br>
+
+            Itni Haseen Hain Aap,
+            Phool Khati Hain Kia? 😄👀<br><br>
+
+            <b>Happy Teachers' Day! ❤️</b>
+        `;
+
+
+    }
+
+
+  
+
+    if(type === 'special'){
+
+        title.innerHTML = "💌 A Special Surprise For You";
+
+        message.innerHTML = `
+        
+         Dear Teacher 🌷<br><br>
+
+            You are not just a teacher,
+            you are someone who makes learning
+            beautiful and life a little brighter. 💜<br><br>
+
+            Thank you for always supporting us,
+            guiding us and believing in us.<br><br>
+
+            You make every lesson special
+            and every classroom memory unforgettable. ✨<br><br>
+
+            <b>Happy Teachers' Day! 🎉</b>
+        `;
+
+           
+    }
+
+
+    modal.classList.add('show');
+
+    confetti();
+
+}
+
+
+
+
+function closeGift(){
+
+    document
+        .getElementById('modal')
+        .classList.remove('show');
+
+}
+
+
+
+
+document
+.getElementById('modal')
+.addEventListener('click',function(e){
+
+    if(e.target === this){
+
+        closeGift();
+
+    }
+
+});
+
+
+
+
+function confetti(){
+
+    for(let i=0;i<100;i++){
+
+        const d = document.createElement('i');
+
+        d.textContent =
+            ['✨','💛','🌸','🎉']
+            [Math.floor(Math.random()*4)];
+
+        d.style.cssText = `
+            position:fixed;
+            left:${Math.random()*100}vw;
+            top:-20px;
+            z-index:40;
+            font-size:${12+Math.random()*18}px;
+            transition:
+                transform ${2+Math.random()*2}s linear,
+                opacity 3s;
+        `;
+
+        document.body.appendChild(d);
+
+
+        setTimeout(()=>{
+
+            d.style.transform =
+                `translateY(${100+Math.random()*100}vh)
+                 rotate(${Math.random()*900}deg)`;
+
+            d.style.opacity=0;
+
+        },30);
+
+
+        setTimeout(()=>{
+
+            d.remove();
+
+        },3500);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
